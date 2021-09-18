@@ -1,0 +1,4 @@
+opencv-python
+cvzone>=1.5.1
+mediapipe
+pyautogui
