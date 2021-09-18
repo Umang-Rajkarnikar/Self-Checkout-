@@ -66,13 +66,18 @@ body {
   background: #D47A20;
   color: #fff;
   border: none;
-  padding: 50px 50px;
+  padding: 60px 60px;
   margin: 20px;
   border-radius: 15px;
   cursor: pointer;
   text-decoration: none;
   font-size: 45px;
   font-family: inherit;
+}
+.grid{
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
 }
 header {
   background: #0F7AD8;
