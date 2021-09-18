@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Self-Checkout</title>
+        <link href="../static/css/styles.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <script type="text/javascript" src="../scripts/slideshow.js"></script>
+        <header>
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li><a href=#start onclick="currentSlide(1)"> <h1>Start</h1></a></li>
+                        <li><a href =#menu onclick="currentSlide(2)"> <h1>Item Menu</h1></a></li>
+                        <li><a href="#payment" onclick="currentSlide(3)"> <h1>Payment</h1></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+                <h1 class="title">Welcome to the Self-Checkout</h1>
+                <button class="startbtn" onclick="currentSlide(2)">Get Started!</button>
+            </div>
+
+            <div class="mySlides fade">
+                <h1 class="title">Item Menu</h1>
+                <button class="menubtn" onclick="currentSlide(4)">Enter a Code</button>
+                <button class="menubtn">Remove an Item from Cart</button>
+                <button class="menubtn" onclick="currentSlide(5)">Ask for Help</button>
+                <button class="menubtn" onclick="currentSlide(3)">Checkout</button>
+                <button class="menubtn" onclick="currentSlide(1)">Cancel</button>
+            </div>
+
+            <div class="mySlides fade">
+                <h1 class="title">Payment</h1>
+                <button class="paybtn">Credit</button>
+                <button class="paybtn">Debit</button>
+                <button class="paybtn" onclick="currentSlide(2)">Cancel</button>
+
+            </div>
+
+            <div class="mySlides fade">
+                <h1 class="title">Please enter your item code</h1>
+                <button class="menubtn" onclick="currentSlide(2)">Back</button>
+                <button class="codebtn">0</button>
+                <button class="codebtn">1</button>
+                <button class="codebtn">2</button>
+                <button class="codebtn">3</button>
+                <button class="codebtn">4</button>
+                <button class="codebtn">5</button>
+                <button class="codebtn">6</button>
+                <button class="codebtn">7</button>
+                <button class="codebtn">8</button>
+            </div>
+
+            <div class="mySlides fade">
+                <h1 class="title">We're here to help!</h1>
+                <button class="menubtn">Request for help</button>
+                <button class="menubtn" onclick="currentSlide(2)">Back</button>
+            </div>
+
+        </div>
+
+    </body>
+</html>

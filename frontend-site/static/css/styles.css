@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+
+* {
+    box-sizing: border-box
+}
+body {
+	margin: 0;
+	background: #063762;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 800;
+}
+.title{
+  color: #FEFEFE;
+  background-color: #063762;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 25px
+}
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+.startbtn{
+  display: block;
+  background: #B71111;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: inherit;
+}
+.menubtn{
+  display: block;
+  background: #D47A20;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: inherit;
+}
+.paybtn{
+  display: block;
+  background: #18B522;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: inherit;
+}
+.codebtn{
+  display: inline-table;
+  background: #D47A20;
+  color: #fff;
+  border: none;
+  padding: 50px 50px;
+  margin: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 45px;
+  font-family: inherit;
+}
+header {
+  background: #0F7AD8;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  text-align: center;
+  width: 33%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+nav a {
+  color: #FCFDFD;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover, nav a:selected {
+  color: #000;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 10px;
+  background-color: #14FEC8;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: 15px;
+}
+
+.mySlides {
+    display:none;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
