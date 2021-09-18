@@ -1,16 +1,17 @@
 <html>
     <head>
         <title>Self-Checkout</title>
-        <link href="static/css/styles.css" rel="stylesheet" type="text/css">
+        <link href="../static/css/styles.css" rel="stylesheet" type="text/css">
     </head>
     <body>
+        <script type="text/javascript" src="../scripts/slideshow.js"></script>
         <header>
             <div class="container">
                 <nav>
                     <ul>
-                        <li><a href =#> Start</a></li>
-                        <li><a href =#> Menu</a></li>
-                        <li><a href="https://github.com/chen-jonathan/Loan_Application"> Payment</a></li>
+                        <li><a href=#start onclick="currentSlide(1)"> Start</a></li>
+                        <li><a href =#menu onclick="currentSlide(2)"> Menu</a></li>
+                        <li><a href="#payment" onclick="currentSlide(3)"> Payment</a></li>
                     </ul>
                 </nav>
             </div>
