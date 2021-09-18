@@ -9,12 +9,57 @@ body {
 	font-family: 'Work Sans', sans-serif;
 	font-weight: 800;
 }
-
+.title{
+  color: #FEFEFE;
+  background-color: #063762;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
 .container {
 	width: 80%;
 	margin: 0 auto;
 }
-
+.startbtn{
+  display: inline-block;
+  background: #B71111;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: inherit;
+}
+.menubtn{
+  display: inline-block;
+  background: #D47A20;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: inherit;
+}
+.paybtn{
+  display: inline-block;
+  background: #18B522;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: inherit;
+}
 header {
   background: #0F7AD8;
 }
