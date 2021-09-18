@@ -1,7 +1,7 @@
 import cv2
-# from cvzone.HandTrackingModule import HandDetector
+from cvzone.HandTrackingModule import HandDetector
 import cvzone
-from detector import HandDetector
+# from detector import HandDetector
 
 CAM_HEIGHT = 720
 CAM_WIDTH = 1280
