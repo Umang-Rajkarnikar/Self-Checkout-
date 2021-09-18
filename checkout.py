@@ -78,7 +78,7 @@ class Page():
                 else:
                     pageNum = 1
                 pressed = False
-                key = None
+                bkey = None
                 return pageNum, pressed, bkey
 
         # check each button to see if it has been pressed
