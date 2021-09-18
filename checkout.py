@@ -1,6 +1,7 @@
 import cv2
-from cvzone.HandTrackingModule import HandDetector
+# from cvzone.HandTrackingModule import HandDetector
 import cvzone
+from detector import HandDetector
 
 CAM_HEIGHT = 720
 CAM_WIDTH = 1280
@@ -9,32 +10,6 @@ cap = cv2.VideoCapture(0)
 cap.set(3, CAM_WIDTH)
 cap.set(4, CAM_HEIGHT)
 detector = HandDetector(detectionCon=0.8)
-
-
-class Page():
-    def __init__(self, name, buttons):
-        self.name = name
-        self.buttons = buttons
-
-    def update(self, cursor, pageNum):
-        for key in self.buttons:
-            x1, y1, x2, y2 = self.buttons[key]
-            # only consider buttons for updating pages
-            if x2 != 'not a button':
-                if x1 < cursor[0] < x2 and y1 < cursor[1] < y2:
-                    cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), cv2.FILLED)
-                    if key == "pay":
-                        return 2
-                    elif key == "help":
-                        return 3
-                    elif key == "remove":
-                        return 4
-                    elif key == "loyalty":
-                        return 5
-                    else:
-                        return 1
-        else:
-            return pageNum
 
 
 # PAGES
@@ -69,6 +44,58 @@ pagesDict = {
 }
 pageNum = 0
 pages = []
+pressed = False
+bkey = None
+
+class Page():
+    def __init__(self, name, buttons):
+        self.name = name
+        self.buttons = buttons
+
+    def update(self, cursor, pageNum, pressed, bkey):
+
+        print(pressed, bkey)
+        # if on start page, move to checkout page
+        if not pageNum:
+            pressed = False
+            bkey = None
+            return 1, pressed, bkey
+
+        # if a button has been pressed, check for release
+        elif pressed:
+            release_length, release_info, release_img = detector.findDistance(lmList[8], lmList[12], img)
+            # if button has been released, 
+            if release_length > 60:
+                print(bkey)
+                if bkey == "pay":
+                    pageNum = 2
+                elif bkey == "help":
+                    pageNum = 3
+                elif bkey == "remove":
+                    pageNum = 4
+                elif bkey == "loyalty":
+                    pageNum = 5
+                else:
+                    pageNum = 1
+                pressed = False
+                key = None
+                return pageNum, pressed, bkey
+
+        # check each button to see if it has been pressed
+        for name in self.buttons:
+            x1, y1, x2, y2 = self.buttons[name]
+            # only consider buttons for updating pages
+            if x2 != 'not a button':
+                # if button has been pressed, turn it green, save the button name and set button pressed status to true
+                if x1 < cursor[0] < x2 and y1 < cursor[1] < y2:
+                    cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), cv2.FILLED)
+                    bkey = name
+                    pressed = True
+                    
+        return pageNum, pressed, bkey
+
+
+
 for key in pagesDict:
     pages.append(Page(key, pagesDict[key]))
 
@@ -92,6 +119,8 @@ while True:
     if hands:
         lmList = hands[0]['lmList']
         cursor = lmList[8]
+
+        # Palm Gesture to Start Checkout
         if pageNum == 0:
             pairs = [(5, 8), (9, 12), (13, 16), (17, 20), (1, 4), (0, 9)]
             lengths = []
@@ -99,13 +128,16 @@ while True:
                 length, info, img = detector.findDistance(lmList[pair[0]], lmList[pair[1]], img)
                 lengths.append(length)
 
-            if all(length>150 for length in lengths):
-                pageNum = page.update(cursor, pageNum)
+            if all(length>100 for length in lengths):
+                pageNum, pressed, bkey = page.update(cursor, pageNum, pressed, bkey)
 
+        # Click Gesture
         else:
             length, info, img = detector.findDistance(lmList[8], lmList[12], img)
             if length < 60:
-                pageNum = page.update(cursor, pageNum)
+                pageNum, pressed, bkey = page.update(cursor, pageNum, pressed, bkey)
+            elif pressed:
+                pageNum, pressed, bkey = page.update(cursor, pageNum, pressed, bkey)
 
     cv2.imshow("Img", img)
     if cv2.waitKey(1) == ord('q'):
