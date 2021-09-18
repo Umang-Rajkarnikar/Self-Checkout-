@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+
+* {
+    box-sizing: border-box
+}
 body {
 	margin: 0;
 	background: #063762;
@@ -47,7 +51,6 @@ nav a:hover, nav a:selected {
   color: #000;
 }
 
-
 nav a::before {
   content: '';
   display: block;
@@ -64,3 +67,5 @@ nav a::before {
 nav a:hover::before {
   width: 100%;
 }
+
+
