@@ -2,7 +2,6 @@ import cv2
 from cvzone.HandTrackingModule import HandDetector
 import cvzone
 import pyautogui
-# from detector import HandDetector
 
 CAM_HEIGHT = 720
 CAM_WIDTH = 1280
@@ -10,7 +9,7 @@ CAM_WIDTH = 1280
 cap = cv2.VideoCapture(0)
 cap.set(3, CAM_WIDTH)
 cap.set(4, CAM_HEIGHT)
-detector = HandDetector(detectionCon=0.8)
+detector = HandDetector(maxHands=1, detectionCon=0.8)
 
 
 # PAGES
@@ -70,7 +69,6 @@ class Page():
 
     def update(self, cursor, pageNum, pressed, bkey):
 
-        print(pressed, bkey)
         # if on start page, move to checkout page
         if not pageNum:
             pressed = False
@@ -125,7 +123,7 @@ class Page():
 for key in pagesDict:
     pages.append(Page(key, pagesDict[key]))
 
-while True:
+while cap.isOpened:
     success, img = cap.read()
     img = cv2.flip(img, 1)
     hands, img = detector.findHands(img, flipType=False)
@@ -167,5 +165,8 @@ while True:
                 pageNum, pressed, bkey = page.update(cursor, pageNum, pressed, bkey)
 
     cv2.imshow("Img", img)
-    if cv2.waitKey(1) == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
+cap.release()
+cv2.destroyAllWindows()
