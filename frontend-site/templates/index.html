@@ -26,18 +26,34 @@
 
             <div class="mySlides fade">
                 <h1 class="title">Item Menu</h1>
-                <button class="menubtn" onclick="currentSlide(4)">Enter a Code</button>
-                <button class="menubtn">Remove an Item from Cart</button>
-                <button class="menubtn" onclick="currentSlide(5)">Ask for Help</button>
-                <button class="menubtn" onclick="currentSlide(3)">Checkout</button>
-                <button class="menubtn" onclick="currentSlide(1)">Cancel</button>
+                <div class="row">
+                    <div class="column">
+                        <button class="menubtn" onclick="currentSlide(4)">Enter a Code</button>
+                        <button class="menubtn">Remove an Item from Cart</button>
+                        <button class="menubtn" onclick="currentSlide(5)">Ask for Help</button>
+                        <button class="menubtn" onclick="currentSlide(3)">Checkout</button>
+                        <button class="menubtn" onclick="currentSlide(1)">Cancel</button>
+                    </div>
+                    <div class="column cart-menu">
+                        <h2>Your Cart:</h2>
+                    </div>
+                </div>
+
             </div>
 
             <div class="mySlides fade">
                 <h1 class="title">Payment</h1>
-                <button class="paybtn">Credit</button>
-                <button class="paybtn">Debit</button>
-                <button class="paybtn" onclick="currentSlide(2)">Cancel</button>
+                <div class="row">
+                    <div class="column">
+                        <button class="paybtn">Credit</button>
+                        <button class="paybtn">Debit</button>
+                        <button class="paybtn" onclick="currentSlide(2)">Cancel</button>
+                    </div>
+                    <div class="column cart-payment">
+                        <h2>Your Cart:</h2>
+                    </div>
+                </div>
+
 
             </div>
 

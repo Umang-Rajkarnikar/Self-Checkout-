@@ -133,15 +133,47 @@ nav a:hover::before {
 }
 
 .slideshow-container {
-    max-width: 1000px;
+    margin: 0;
+    padding: 0;
     position: relative;
     margin: 15px;
 }
 
 .mySlides {
     display:none;
+    margin: 0;
+    padding: 0;
+    width: 100%
 }
 
+.row {
+    display:flex;
+    width: 100%
+}
+
+.column {
+    flex: 50%
+}
+
+.cart-menu {
+    background-color: #D47A20;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 15);
+    border-radius: 15px;
+    width: 100%
+}
+
+.cart-payment {
+    background-color: #18B522;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 15);
+    border-radius: 15px;
+    width: 100%
+}
+.cart-menu h2, .cart-payment h2 {
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+}
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
